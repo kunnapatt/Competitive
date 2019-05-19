@@ -1,0 +1,31 @@
+4
+1 0 1 0
+0 0 0 0
+1 1 1 1
+0 1 0 1
+4
+1 0 1 0
+0 0 1 0
+1 1 1 1
+0 1 0 1
+4
+1 0 1 0
+0 1 1 0
+1 1 1 1
+0 1 0 1
+4
+1 1 1 1
+1 1 1 1
+1 1 0 1
+1 1 1 0
+
+0
+
+
+if ( anscol % 2 == 0 && ansrow % 2 == 0 ){
+                cout << "OK" << endl ;
+            }else if ( anscol % 2 != 0 && ansrow % 2 != 0 ){
+                cout << "Corrupt" << endl ;
+            }else {
+                cout << "Change bit (" <<  anscol << "," << ansrow << ")" << endl ;
+            }

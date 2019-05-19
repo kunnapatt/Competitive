@@ -1,0 +1,13 @@
+5
+1 2 6 4 5
+
+
+if ( n == 1 ){
+           ans += y ;
+        }else {
+            if ( x <= y ){
+                if ( x != lastx && y != lasty ){
+                    ans++ ;
+                }
+            }
+        }

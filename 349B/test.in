@@ -1,0 +1,112 @@
+120081
+11268 36403 73200 12676 83919 74218 74172 91581 12675
+
+
+#include <bits/stdc++.h>
+
+using namespace std ;
+
+#define FOR(i, a, b) for(int i = a ; i < b ; i++)
+#define vi vector<int>
+
+int main() {
+    int n ;
+    freopen("test.in", "r", stdin) ;
+    cin >> n ;
+    vi a(10) ;
+    int mi = 10000000 ;
+    if ( n == 0 ){
+        cout << -1 << endl ;
+        return 0 ;
+    }
+    int pos = 0 ;
+    FOR(i, 1, 10){
+        int in ;
+        cin >> in ;
+        a[i] = in ;
+        mi = min(mi, a[i]) ;
+        if ( mi == a[i] ){
+            pos = i ;
+        }
+    }
+    if ( n == 0 || mi > n ){
+        cout << -1 << endl ;
+    }
+    //cout << pos << endl ;
+    while ( n > 0 ){
+        cout << pos ;
+        n -= mi ;
+    }
+    cout << endl ;
+    return 0 ;
+}
+
+
+
+
+#include <bits/stdc++.h>
+
+using namespace std ;
+
+#define FOR(i, a, b) for(int i = a ; i < b ; i++)
+#define vi vector<int>
+
+int main() {
+    int n ;
+    freopen("test.in", "r", stdin) ;
+    cin >> n ;
+    vi a(9) ;
+    int mi = 100000001 ;
+    int pos = 0 ;
+    for(int i = 1 ; i < 10 ; i++){
+        int in ;
+        cin >> in ;
+        a[i] = in ;
+        mi = min(mi, a[i]) ;
+        if ( mi == a[i] ){
+            pos = i ;
+        }
+    }
+    if ( n == 0 || mi > n ){
+        cout << -1 << endl ;
+        return 0 ;
+    }
+
+    int remain = n%mi ;
+    int devid = n/mi ;
+    //cout << remain << ", " << devid << endl ;
+    int posi = a[pos] ;
+    vi b(devid, pos) ;
+
+    for(int i = 0 ; i < b.size() ; i++){
+        cout << b[i] ;
+    }
+    cout << endl ;
+    for (int i = 1 ; i < 10; i++){
+        //int chesum = remain - abs(a[b[i - 1]] - a[i]) ;
+        //if ( chesum > 0 ){
+            //remain = remain - abs(a[b[i - 1]] - a[i]) ;
+            //b[i - 1] = i ;
+        cout << "A" << endl ;
+        for(int j = 0 ; j < b.size() - i + 1 ; j++){
+            int chesum = remain - (a[i] - a[b[j]]) ;
+            //cout<<i<<" "<<j<<" "<<chesum<<endl;
+            if ( chesum >= 0 && (a[i] != a[b[j]])){
+                remain = remain - (a[i] - a[b[j]]) ;
+                b[j] = i ;
+            }
+            //for(int i = 0 ; i < b.size() ; i++){
+            //    cout << b[i] ;
+            //}
+            //cout<<endl<<remain<<endl;
+        }
+        //}
+    }
+    //sort(b.rbegin(), b.rend()) ;
+    for(int i = 0 ; i < b.size() ; i++){
+        cout << b[i] ;
+    }
+
+    return 0 ;
+}
+
